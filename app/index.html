@@ -45,6 +45,7 @@
     <![endif]-->
 
     <!-- build:js scripts/vendor.js -->
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -56,12 +57,15 @@
     <script src="bower_components/angularjs-geolocation/src/geolocation.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
+
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/map.js"></script>
         <script src="scripts/services/search.js"></script>
         <!-- endbuild -->
 </body>

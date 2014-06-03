@@ -36,19 +36,18 @@
                 </div>
 
             </form>
-        </div>
-<!--        <div class="" ng-controller="ExampleController">
-            <google-map
-                center="centerProperty"
-                zoom="zoomProperty" 
-                markers="markersProperty"
-                latitude="clickedLatitudeProperty"
-                longitude="clickedLongitudeProperty"
-                mark-click="true"
-                draggable="true"
-                style="height: 450px; width: 100%">
+            <div><p>Haga click para establecer su ubicación</p>
+            <google-map center="map.center" zoom="map.zoom" events="map.events" draggable="true">
+            <div ng-init="opts = {animation:0}">
+                <marker coords="map.clickedMarker" options="opts">
+            </marker>
+
+            </div>
+            <markers models="map.markersResults" coords="'self'" icon="'icon'"></markers>
             </google-map>
-        </div>-->
+        </div>
+        
+
         <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="https://twitter.com/intent/tweet?button_hashtag=PrecioJusto&text=Compré%20este%20producto%20a%20un%20" data-lang="es"><i class="fa fa-pencil fa-fw"></i>Publicar</a></li>

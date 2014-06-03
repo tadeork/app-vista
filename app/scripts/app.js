@@ -6,7 +6,8 @@ angular
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'resource.Search'
+    'resource.Search',
+    'google-maps'
   ])
   .config(function ($routeProvider) {
     $routeProvider

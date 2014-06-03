@@ -1,15 +1,14 @@
 'use strict';
 angular.module('resource.Search', []);
-angular.module('resource.Search').service('Search', ['$http',
-  function ($http) {
-    // AngularJS will instantiate a singleton by calling "new" on this function
-    var Search = {};
-
-    Search.search = function (query, lat, long, strategy) {
-      return {};
-    };
-    
-
-    return Search;
-  }
+angular.module('resource.Search').service('Search', ['$resource',
+	function($resource) {
+		// AngularJS will instantiate a singleton by calling "new" on this function
+		return $resource('http://localhost:8080/precios-justos/rest/search', {
+			callback: "JSON_CALLBACK"
+		}, {
+			get: {
+				method: 'JSONP'
+			}
+		});
+	}
 ]);

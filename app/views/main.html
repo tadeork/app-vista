@@ -38,12 +38,12 @@
             </form>
             <div><p>Haga click para establecer su ubicación</p>
             <google-map center="map.center" zoom="map.zoom" events="map.events" draggable="true">
-            <div ng-init="opts = {animation:0}">
-                <marker coords="map.clickedMarker" options="opts">
-            </marker>
+                <div ng-init="opts = {animation:0}">
+                    <marker coords="map.myPosition" options="opts">
+                </marker>
 
-            </div>
-            <markers models="map.markersResults" coords="'self'" icon="'icon'"></markers>
+                </div>
+                <markers models="map.markersResults" coords="'self'" icon="'icon'"></markers>
             </google-map>
         </div>
         

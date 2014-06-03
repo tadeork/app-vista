@@ -11,7 +11,7 @@ appTwitt.controller('MainCtrl', ['$scope', 'Search', //controlador del módulo
     ];
     //aca se guardan las respuestas
     $scope.responses = [];
-   
+
     $scope.map = {
       center: {
         latitude: -32.89011,
@@ -30,12 +30,12 @@ appTwitt.controller('MainCtrl', ['$scope', 'Search', //controlador del módulo
             latitude: e.latLng.lat(),
             longitude: e.latLng.lng(),
           };
-          $scope.map.clickedMarker = marker;
+          $scope.map.myPosition = marker;
           //scope apply required because this event handler is outside of the angular domain
           $scope.$apply();
         }
       },
-      clickedMarker: {},
+      myPosition: {},
       markersResults: []
     };
     $scope.myLocation = {
@@ -48,16 +48,23 @@ appTwitt.controller('MainCtrl', ['$scope', 'Search', //controlador del módulo
     $scope.spendLess = null;
 
     $scope.search = function() {
-      console.log($scope.querySearch);
-      console.log($scope.walkLess);
-      console.log($scope.spendLess);
-      var strategy = 0; // convertir walkLess y spendLess en 0,1,2
-      //console.log(Search.search($scope.querySearch, lat, longitud, strategy));
-      $scope.map.markersResults.push({
-        "id": 1,
-        "latitude": -32,
-        "longitude": -68
+      Search.get({
+        'productName': $scope.querySearch,
+        'latitude': $scope.map.myPosition.latitude,
+        'longitude': $scope.map.myPosition.longitude,
+        'strategy': 0
+      }, function(data) {
+        console.log(data);
       });
+
+
+
+      //console.log(Search.search($scope.querySearch, lat, longitud, strategy));
+      // $scope.map.markersResults.push({
+      //   "id": 1,
+      //   "latitude": -32,
+      //   "longitude": -68
+      // });
     };
   }
 ]);

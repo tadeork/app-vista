@@ -36,6 +36,25 @@
                 </div>
 
             </form>
+            <table ng-show="results" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Direccion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in results">
+                  <td>{{$index}}</td>
+                  <td>{{item.product.name}}</td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.position.address}}</td>
+                </tr>
+              </tbody>
+            </table>
+
             <div><p>Haga click para establecer su ubicación</p>
             <google-map center="map.center" zoom="map.zoom" events="map.events" draggable="true">
                 <div ng-init="opts = {animation:0}">

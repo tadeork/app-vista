@@ -38,11 +38,7 @@ appTwitt.controller('MainCtrl', ['$scope', 'Search', //controlador del módulo
       myPosition: {},
       markersResults: []
     };
-    $scope.myLocation = {
-      latitude: -33,
-      longitude: -68
-    };
-
+    $scope.results = [];
     $scope.querySearch = null;
     $scope.walkLess = null;
     $scope.spendLess = null;
@@ -54,7 +50,18 @@ appTwitt.controller('MainCtrl', ['$scope', 'Search', //controlador del módulo
         'longitude': $scope.map.myPosition.longitude,
         'strategy': 0
       }, function(data) {
-        console.log(data);
+        $scope.map.markersResults = [];
+        $scope.results = [];
+        data.forEach(function(result) {
+          console.log(result);
+          $scope.results.push(result);
+          $scope.map.markersResults.push({
+            "id": result.id,
+            "latitude": result.position.latitude,
+            "longitude": result.position.longitude
+          });
+        });
+
       });
 
 

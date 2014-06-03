@@ -7,7 +7,8 @@ angular.module('resource.Search').service('Search', ['$resource',
 			callback: "JSON_CALLBACK"
 		}, {
 			get: {
-				method: 'JSONP'
+				method: 'JSONP',
+				isArray: true
 			}
 		});
 	}
